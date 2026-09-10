@@ -12,6 +12,7 @@ import jakarta.servlet.http.Part;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
@@ -38,6 +39,10 @@ public class Harry10 extends HttpServlet {
 		
 		response.setContentType("image/jpeg");
 		ImageIO.write(img, "JPEG", response.getOutputStream());
+		
+		File file = new File(getServletContext().getRealPath("/upload"), "harry.jpg");
+		System.out.println(file.getPath());
+		ImageIO.write(img, "JPEG", file);
 		response.flushBuffer();
 		
 	}
