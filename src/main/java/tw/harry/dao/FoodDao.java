@@ -28,7 +28,7 @@ public class FoodDao {
 			Connection conn = InitListener.ds.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(SQL_QUERY_PAGE);
 		) {
-			pstmt.setInt(1, offset);
+			pstmt.setInt(1, offset * srpp);
 			pstmt.setInt(2, srpp);
 			
 			try (ResultSet rs = pstmt.executeQuery()) {

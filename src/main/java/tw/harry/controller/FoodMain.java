@@ -18,11 +18,9 @@ public class FoodMain extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int page = 1;
-		int rpp = 1;
 		
 		try {
 			page = Integer.parseInt(request.getParameter("page"));
-			rpp = Integer.parseInt(request.getParameter("rpp"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
