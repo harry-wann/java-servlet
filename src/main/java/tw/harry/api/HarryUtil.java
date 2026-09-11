@@ -6,9 +6,8 @@ import java.io.FileInputStream;
 
 public class HarryUtil {
 	
-	public static String loadView() throws Exception {
+	public static String loadView(String source) throws Exception {
 		
-		var source = "C:\\Users\\User\\Desktop\\EEIT25\\JAVA\\HarryWeb\\src\\main\\webapp\\views\\view1.html";
 		var bin = new BufferedInputStream(new FileInputStream(source));
 		byte[] buf = bin.readAllBytes();
 		bin.close();

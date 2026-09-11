@@ -23,7 +23,13 @@ public class CalcViewer extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		try {
-			webContent = HarryUtil.loadView()
+			var view = (String) request.getAttribute("view");
+			var source = String.format(
+				"C:\\Users\\User\\Desktop\\EEIT25\\JAVA\\HarryWeb\\src\\main\\webapp\\views\\%s.html",
+				view	
+			);
+			System.out.println("VIEW is " + view);
+			webContent = HarryUtil.loadView(source)
 				.replaceAll("#x", x)
 				.replaceAll("#y", y)
 				.replaceAll("#result", result);
