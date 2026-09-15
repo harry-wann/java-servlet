@@ -27,6 +27,19 @@
 					}
 				});
 			}
+			
+			function test4() {
+				let url = "Harry24";
+				let max = $('#max').val();
+				$.ajax({
+					url: url,
+					method: 'get',
+					data: { max: max },
+					success: function(data) {
+						$('#lottery').html(data);
+					}
+				})
+			}
 		
 		</script>
 	</head>
@@ -39,5 +52,7 @@
 		<input type="button" onclick="test2()" value="Test2" />
 		<br/>
 		<input type="button" onclick="test3()" value="Test3" />
+		<br/>
+		<input type="button" onclick="test4()" value="Test4" />
 	</body>
 </html>

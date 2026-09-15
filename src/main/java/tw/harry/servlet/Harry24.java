@@ -11,9 +11,12 @@ import java.io.PrintWriter;
 @WebServlet("/Harry24")
 public class Harry24 extends HttpServlet {
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		
+		System.out.println(request.getMethod());
+		
 		int max = 49;
 		try {
 			max = Integer.valueOf(request.getParameter("max"));

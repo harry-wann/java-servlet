@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Big Harry Company</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			function op() {
+				let url = "Harry32.jsp";
+				console.log(JSON.stringify({ 
+						operator: $('#operator').val(),
+						params: {
+							x: $('#x').val(),
+							y: $('#y').val()
+						}
+					}));
+				$.post(
+					url,
+					JSON.stringify({ 
+						operator: $('#operator').val(),
+						params: {
+							x: $('#x').val(),
+							y: $('#y').val()
+						}
+					}),
+					function(data, status) {
+						if (status === "success") {
+							$('#result').html(data.result);
+						}
+					}
+				)
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Big Harry Company</h1>
+		<hr>
+		<input type='number' id="x" />
+		<select id="operator">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="x">x</option>
+			<option value="/">/</option>
+		</select>
+		<input type='number' id="y" />
+		<input type='button' onclick="op()" value="=" />
+		<span id="result"></span>
+	</body>
+</html>
